@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.view.View
 import kotlinx.android.synthetic.main.activity_main.*
 import android.content.Intent
+import android.support.design.widget.Snackbar
 
 
 class MainActivity : AppCompatActivity(), View.OnClickListener {
@@ -26,43 +27,106 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         val intent = Intent(this, SecondActivity::class.java)
         //★ﾌﾟﾗｽ
         if (v.id == R.id.button1) {
-            var str1 = editText1.text.toString().toInt()
+            var str1 = editText1.text.toString()/*.toFloat()*/
+            if (str1 == "" || str1 == "." || str1 == "-") {
+                // nullでない場合のみ処理が行われるのでエラーにならない
+                Snackbar.make(v, "何か数値を入力してください", Snackbar.LENGTH_LONG)
+                    .setAction("Action", null).show()
+                return
+            }
 
-            var str2 = editText2.text.toString().toInt()
+            var str2 = editText2.text.toString()/*.toFloat()*/
+            if (str2 == "" || str2 == "." || str2 == "-") {
+                // nullでない場合のみ処理が行われるのでエラーにならない
+                Snackbar.make(v, "何か数値を入力してください", Snackbar.LENGTH_LONG)
+                    .setAction("Action", null).show()
+                return
+            }
+            var num1 = str1.toFloat()
+            var num2 = str2.toFloat()
+            var plus = num1 + num2
 
             /*val intent = Intent(this, SecondActivity::class.java)*/
-            intent.putExtra("VALUE1", str1)
-            intent.putExtra("VALUE2", str2)
+
+            intent.putExtra("VALUE1", plus)
             startActivity(intent)
         }
         //★マイナス
         if (v.id == R.id.button2) {
-            var str3 = editText1.text.toString().toInt()
+            var str3 = editText1.text.toString()
+            if (str3 == "" || str3 == "." || str3 == "-") {
+                // nullでない場合のみ処理が行われるのでエラーにならない
+                Snackbar.make(v, "何か数値を入力してください", Snackbar.LENGTH_LONG)
+                    .setAction("Action", null).show()
+                return
+            }
 
-            var str4 = editText2.text.toString().toInt()
+            var str4 = editText2.text.toString()
+            if (str4 == "" || str4 == "." || str4 == "-") {
+                // nullでない場合のみ処理が行われるのでエラーにならない
+                Snackbar.make(v, "何か数値を入力してください", Snackbar.LENGTH_LONG)
+                    .setAction("Action", null).show()
+                return
+            }
+            var num3 = str3.toFloat()
+            var num4 = str4.toFloat()
+            var minus = num3 - num4
 
-            intent.putExtra("VALUE3", str3)
-            intent.putExtra("VALUE4", str4)
+            /*val intent = Intent(this, SecondActivity::class.java)*/
+            intent.putExtra("VALUE1", minus)
             startActivity(intent)
         }
+
         //★カケル
         if (v.id == R.id.button3) {
-            var str5 = editText1.text.toString().toInt()
+            var str5 = editText1.text.toString()
+            if (str5 == "" || str5 == "." || str5 == "-") {
+                // nullでない場合のみ処理が行われるのでエラーにならない
+                Snackbar.make(v, "何か数値を入力してください", Snackbar.LENGTH_LONG)
+                    .setAction("Action", null).show()
+                return
+            }
 
-            var str6 = editText2.text.toString().toInt()
+            var str6 = editText2.text.toString()
+            if (str6 == "" || str6 == "." || str6 == "-") {
+                // nullでない場合のみ処理が行われるのでエラーにならない
+                Snackbar.make(v, "何か数値を入力してください", Snackbar.LENGTH_LONG)
+                    .setAction("Action", null).show()
+                return
+            }
+            var num5 = str5.toFloat()
+            var num6 = str6.toFloat()
+            var multi = num5 * num6
 
-            intent.putExtra("VALUE5", str5)
-            intent.putExtra("VALUE6", str6)
+            /*val intent = Intent(this, SecondActivity::class.java)*/
+            intent.putExtra("VALUE1", multi)
             startActivity(intent)
         }
+
+
         //★ワル
         if (v.id == R.id.button4) {
-            var str7 = editText1.text.toString().toInt()
+            var str7 = editText1.text.toString()
+            if (str7 == "" || str7 == "." || str7 == "-") {
+                // nullでない場合のみ処理が行われるのでエラーにならない
+                Snackbar.make(v, "何か数値を入力してください", Snackbar.LENGTH_LONG)
+                    .setAction("Action", null).show()
+                return
+            }
 
-            var str8 = editText2.text.toString().toInt()
+            var str8 = editText2.text.toString()
+            if (str8 == "" || str8 == "." || str8 == "-") {
+                // nullでない場合のみ処理が行われるのでエラーにならない
+                Snackbar.make(v, "何か数値を入力してください", Snackbar.LENGTH_LONG)
+                    .setAction("Action", null).show()
+                return
+            }
+            var num7 = str7.toFloat()
+            var num8 = str8.toFloat()
+            var divide = num7 / num8
 
-            intent.putExtra("VALUE7", str7)
-            intent.putExtra("VALUE8", str8)
+            /*val intent = Intent(this, SecondActivity::class.java)*/
+            intent.putExtra("VALUE1", divide)
             startActivity(intent)
         }
     }
